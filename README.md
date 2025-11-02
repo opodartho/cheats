@@ -39,7 +39,10 @@ kubectl logs <pod_name> -n <namespace>
 kubectl apply -f deployment.yaml
 
 # Port forward
-kubectl port-forward svc/my-service 8080:80 -n my-namespace
+kubectl port-forward svc/my-service 8080:80 -n namespace
+
+# Scale all pods in a namespace
+kubectl get deployments -n <namespace> -o name | xargs -I{} kubectl scale -n <namespace> {} --replicas=0
 ```
 
 ### PostgreSQL
