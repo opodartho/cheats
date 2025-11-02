@@ -7,7 +7,10 @@ A personal reference of commonly used commands.
 ### Table of Contents
 
 - [Linux Basics](#linux-basics)
+- [Docker / Posman](#docker--podman)
 - [Kubernetes (kubectl)](#kubernetes-kubectl)
+- [PostgreSQL](#postgresql)
+- [Networking](#networking)
 - [System Info](#system-info)
 
 ### Linux Basics
@@ -37,6 +40,41 @@ kubectl apply -f deployment.yaml
 
 # Port forward
 kubectl port-forward svc/my-service 8080:80 -n my-namespace
+```
+
+### PostgreSQL
+
+```bash
+# List all users
+\du
+
+# List all schemas
+\dn
+
+# List all tables in a schema
+\dt <schema>.*
+
+# Create database
+createdb -U postgres <dbName>
+
+# Copy a database from existing (new db must be created before)
+pg_dumb -U postgres <oldDB> | psql -U postgres <newDB>
+
+# Change owner of a database
+ALTER DATABASE mydb OWNER TO new_owner;
+```
+
+### Networking
+
+```bash
+# TCP Port Scan
+nmap -nP 22,80,443 <target>
+
+# Top common ports
+nmap -nP --top-ports 100 <target>
+
+# Scan for UDP Ports
+sudo nmap -sU -Pn -p 53,123 <target>
 ```
 
 ### System Info
