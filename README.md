@@ -1,1 +1,53 @@
-# cheats
+## My DevOps Cheat Sheet
+
+A personal reference of commonly used commands.
+
+---
+
+### Table of Contents
+
+- [Linux Basics](#linux-basics)
+- [Kubernetes (kubectl)](#kubernetes-kubectl)
+- [System Info](#system-info)
+
+### Linux Basics
+
+```bash
+# Show disk usage in human-redable form
+df -h
+
+# View listening ports
+ss -tuln
+```
+
+### Kubernetes (kubectl)
+
+```bash
+# Get all pods in all namespaces
+kubectl get pods -A
+
+# Describe a pod
+kubectl describe pod <pod_name> -n <namespace>
+
+# View logs
+kubectl logs <pod_name> -n <namespace>
+
+# Apply a YAML file
+kubectl apply -f deployment.yaml
+
+# Port forward
+kubectl port-forward svc/my-service 8080:80 -n my-namespace
+```
+
+### System Info
+
+```bash
+# Check OS version
+cat /etc/os-release
+
+# Show kernel info
+uname -r
+
+# Check uptime
+uptime
+```
